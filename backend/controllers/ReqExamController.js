@@ -16,13 +16,13 @@ const getReqExam = async (req, res) => {
     return res.status(404).json({ error: "No such ReqExam" });
   }
 
-  const ReqExam = await ReqExam.findById(id);
+  const reqExam = await ReqExam.findById(id);
 
-  if (!ReqExam) {
+  if (!reqExam) {
     return res.status(404).json({ error: "No such ReqExam" });
   }
 
-  res.status(200).json(ReqExam);
+  res.status(200).json(reqExam);
 };
 
 //input dummy data
@@ -201,13 +201,13 @@ const deleteReqExam = async (req, res) => {
     return res.status(400).json({ error: "No such ReqExam" });
   }
 
-  const ReqExam = await ReqExam.findOneAndDelete({ _id: id });
+  const reqExam = await ReqExam.findOneAndDelete({ _id: id });
 
-  if (!ReqExam) {
+  if (!reqExam) {
     return res.status(400).json({ error: "No such ReqExam" });
   }
 
-  res.status(200).json(ReqExam);
+  res.status(200).json(reqExam);
 };
 
 // update a ReqExam
@@ -218,18 +218,18 @@ const updateReqExam = async (req, res) => {
     return res.status(400).json({ error: "No such ReqExam" });
   }
 
-  const ReqExam = await ReqExam.findOneAndUpdate(
+  const reqExam = await ReqExam.findOneAndUpdate(
     { _id: id },
     {
       ...req.body,
     }
   );
 
-  if (!ReqExam) {
+  if (!reqExam) {
     return res.status(400).json({ error: "No such ReqExam" });
   }
 
-  res.status(200).json(ReqExam);
+  res.status(200).json(reqExam);
 };
 
 module.exports = {

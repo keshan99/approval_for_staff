@@ -16,13 +16,13 @@ const getSubject = async (req, res) => {
     return res.status(404).json({ error: "No such Subject" });
   }
 
-  const Subject = await Subject.findById(id);
+  const subject = await Subject.findById(id);
 
-  if (!Subject) {
+  if (!subject) {
     return res.status(404).json({ error: "No such Subject" });
   }
 
-  res.status(200).json(Subject);
+  res.status(200).json(subject);
 };
 
 
@@ -66,13 +66,13 @@ const deleteSubject = async (req, res) => {
     return res.status(400).json({ error: "No such Subject" });
   }
 
-  const Subject = await Subject.findOneAndDelete({ _id: id });
+  const subject = await Subject.findOneAndDelete({ _id: id });
 
-  if (!Subject) {
+  if (!subject) {
     return res.status(400).json({ error: "No such Subject" });
   }
 
-  res.status(200).json(Subject);
+  res.status(200).json(subject);
 };
 
 // update a Subject
@@ -83,18 +83,18 @@ const updateSubject = async (req, res) => {
     return res.status(400).json({ error: "No such Subject" });
   }
 
-  const Subject = await Subject.findOneAndUpdate(
+  const subject = await Subject.findOneAndUpdate(
     { _id: id },
     {
       ...req.body,
     }
   );
 
-  if (!Subject) {
+  if (!subject) {
     return res.status(400).json({ error: "No such Subject" });
   }
 
-  res.status(200).json(Subject);
+  res.status(200).json(subject);
 };
 
 module.exports = {
