@@ -2,7 +2,6 @@ const express = require('express')
 const {
   getSubjects, 
   getSubject, 
-  createSubject, 
   createSubject,
   deleteSubject, 
   updateSubject

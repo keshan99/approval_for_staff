@@ -29,13 +29,13 @@ const getSubject = async (req, res) => {
 // create a new Subject
 const createSubject = async (req, res) => {
   console.log(req.body);
-  const { student_ID, coordinator_ID } =
+  const { subject_ID, coordinator_ID } =
     req.body;
 
   let emptyFields = [];
 
-  if (!student_ID) {
-    emptyFields.push("student_ID");
+  if (!subject_ID) {
+    emptyFields.push("subject_ID");
   }
   if (!coordinator_ID) {
     emptyFields.push("coordinator_ID");
@@ -49,11 +49,10 @@ const createSubject = async (req, res) => {
   // add to the database
   try {
     const subject = await Subject.create({
-      student_ID,
+      subject_ID,
       coordinator_ID,
     });
-    res.status(200).json(Subject);
-    return
+    res.status(200).json(subject);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

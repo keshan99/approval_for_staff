@@ -3,7 +3,6 @@ const {
   getReqExams, 
   getReqExam, 
   createReqExam, 
-  createReqExam,
   deleteReqExam, 
   updateReqExam
 } = require('../controllers/ReqExamController')
