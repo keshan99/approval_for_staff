@@ -28,7 +28,6 @@ const getSubject = async (req, res) => {
 
 // create a new Subject
 const createSubject = async (req, res) => {
-  console.log(req.body);
   const { subject_ID, coordinator_ID } =
     req.body;
 
@@ -48,10 +47,21 @@ const createSubject = async (req, res) => {
 
   // add to the database
   try {
-    const subject = await Subject.create({
-      subject_ID,
-      coordinator_ID,
-    });
+    var subject = "";
+    if (req.body.id) {
+      const _id = mongoose.Types.ObjectId(req.body.id);
+      subject = await Subject.create({
+        _id,
+        subject_ID,
+        coordinator_ID,
+      });
+    } else {
+      subject = await Subject.create({
+        subject_ID,
+        coordinator_ID,
+      });
+    }
+    
     res.status(200).json(subject);
   } catch (error) {
     res.status(400).json({ error: error.message });

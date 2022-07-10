@@ -150,7 +150,7 @@ const getReqExam = async (req, res) => {
 
 // create a new ReqExam
 const createReqExam = async (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   const { student_ID, subject_ID, attendance, lab_attendance, accept } =
     req.body;
 
@@ -177,16 +177,31 @@ const createReqExam = async (req, res) => {
       .json({ error: "Please fill in all fields", emptyFields });
   }
 
+    
   // add to the database
   try {
-    const reqExam = await ReqExam.create({
-      student_ID,
-      subject_ID,
-      attendance,
-      lab_attendance,
-      accept,
-    });
-    res.status(200).json(ReqExam);
+    var reqExam = "";
+    if (req.body.id) {
+      const _id = mongoose.Types.ObjectId(req.body.id);
+      reqExam = await ReqExam.create({
+        _id,
+        student_ID,
+        subject_ID,
+        attendance,
+        lab_attendance,
+        accept,
+      });
+    } else {
+      reqExam = await ReqExam.create({
+        student_ID,
+        subject_ID,
+        attendance,
+        lab_attendance,
+        accept,
+      });
+    }
+   
+    res.status(200).json(reqExam);
     return
   } catch (error) {
     res.status(400).json({ error: error.message });
