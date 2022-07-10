@@ -3,7 +3,7 @@ const {
   getReqExams, 
   getReqExam, 
   createReqExam, 
-  createReqExam_dummy,
+  createReqExam,
   deleteReqExam, 
   updateReqExam
 } = require('../controllers/ReqExamController')
@@ -17,7 +17,7 @@ router.get('/', getReqExams)
 router.get('/:id', getReqExam)
 
 // POST a new ReqExam
-router.post('/', createReqExam_dummy)
+router.post('/', createReqExam)
 
 // DELETE a ReqExam
 router.delete('/:id', deleteReqExam)
