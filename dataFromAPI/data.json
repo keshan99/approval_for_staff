@@ -1,0 +1,417 @@
+{
+    "subject": [
+        {
+            "subject_ID": "AB1010",
+            "subject_name": "first subject",
+            "deparment": "computer",
+            "corrdinator_email": "amal@gmail.com",
+            "semester": "1"
+        },
+        {
+            "subject_ID": "AB1020",
+            "subject_name": "second subject",
+            "deparment": "computer",
+            "corrdinator_email": "isuru@gmail.com",
+            "semester": "1"
+        },
+        {
+            "subject_ID": "AB1030",
+            "subject_name": "third subject",
+            "deparment": "computer",
+            "corrdinator_email": "amal@gmail.com",
+            "semester": "1"
+        },
+        {
+            "subject_ID": "AB1040",
+            "subject_name": "fourth subject",
+            "deparment": "computer",
+            "corrdinator_email": "isuru@gmail.com",
+            "semester": "1"
+        },
+        {
+            "subject_ID": "AB1050",
+            "subject_name": "fifth subject",
+            "deparment": "computer",
+            "corrdinator_email": "amal@gmail.com",
+            "semester": "1"
+        },
+        {
+            "subject_ID": "AB1060",
+            "subject_name": "sixth subject",
+            "deparment": "computer",
+            "corrdinator_email": "channa@gmail.com",
+            "semester": "1"
+        }
+    ],
+    "adviser": [
+        {
+            "email": "amal@gmail.com",
+            "student_e_num": [
+                "2001e001",
+                "2001e002",
+                "2001e003"
+            ]
+        },
+        {
+            "email": "isuru@gmail.com",
+            "student_e_num": [
+                "2001e004",
+                "2001e005",
+                "2001e006"
+            ]
+        },
+        {
+            "email": "channa@gmail.com",
+            "student_e_num": [
+                "2001e007",
+                "2001e008",
+                "2001e009"
+            ]
+        }
+    ],
+    "student": [
+        {
+            "e_num": "2001e001",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e002",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e003",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e004",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e005",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e006",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e007",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e008",
+            "current_batch": "E01"
+        },
+        {
+            "e_num": "2001e009",
+            "current_batch": "E01"
+        }
+    ],
+    "attendance": [
+        {
+            "batch": "E001",
+            "record": [
+                {
+                    "subject_ID": "AB1010",
+                    "record": [
+                        {
+                            "e_num": "2001e001",
+                            "lec_attendance": "76",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e002",
+                            "lec_attendance": "80",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e003",
+                            "lec_attendance": "86",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e004",
+                            "lec_attendance": "96",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e005",
+                            "lec_attendance": "100",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e006",
+                            "lec_attendance": "50",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e007",
+                            "lec_attendance": "20",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e008",
+                            "lec_attendance": "81",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e009",
+                            "lec_attendance": "90",
+                            "lab_attendance": "100"
+                        }
+                    ]
+                },
+                {
+                    "subject_ID": "AB1020",
+                    "record": [
+                        {
+                            "e_num": "2001e001",
+                            "lec_attendance": "76",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e002",
+                            "lec_attendance": "80",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e003",
+                            "lec_attendance": "86",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e004",
+                            "lec_attendance": "96",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e005",
+                            "lec_attendance": "100",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e006",
+                            "lec_attendance": "50",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e007",
+                            "lec_attendance": "20",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e008",
+                            "lec_attendance": "81",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e009",
+                            "lec_attendance": "90",
+                            "lab_attendance": "100"
+                        }
+                    ]
+                },
+                {
+                    "subject_ID": "AB1030",
+                    "record": [
+                        {
+                            "e_num": "2001e001",
+                            "lec_attendance": "76",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e002",
+                            "lec_attendance": "80",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e003",
+                            "lec_attendance": "86",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e004",
+                            "lec_attendance": "96",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e005",
+                            "lec_attendance": "100",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e006",
+                            "lec_attendance": "50",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e007",
+                            "lec_attendance": "20",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e008",
+                            "lec_attendance": "81",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e009",
+                            "lec_attendance": "90",
+                            "lab_attendance": "100"
+                        }
+                    ]
+                },
+                {
+                    "subject_ID": "AB1040",
+                    "record": [
+                        {
+                            "e_num": "2001e001",
+                            "lec_attendance": "76",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e002",
+                            "lec_attendance": "80",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e003",
+                            "lec_attendance": "86",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e004",
+                            "lec_attendance": "96",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e005",
+                            "lec_attendance": "100",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e006",
+                            "lec_attendance": "50",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e007",
+                            "lec_attendance": "20",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e008",
+                            "lec_attendance": "81",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e009",
+                            "lec_attendance": "90",
+                            "lab_attendance": "100"
+                        }
+                    ]
+                },
+                {
+                    "subject_ID": "AB1050",
+                    "record": [
+                        {
+                            "e_num": "2001e001",
+                            "lec_attendance": "76",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e002",
+                            "lec_attendance": "80",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e003",
+                            "lec_attendance": "86",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e004",
+                            "lec_attendance": "96",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e005",
+                            "lec_attendance": "100",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e006",
+                            "lec_attendance": "50",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e007",
+                            "lec_attendance": "20",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e008",
+                            "lec_attendance": "81",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e009",
+                            "lec_attendance": "90",
+                            "lab_attendance": "100"
+                        }
+                    ]
+                },
+                {
+                    "subject_ID": "AB1060",
+                    "record": [
+                        {
+                            "e_num": "2001e001",
+                            "lec_attendance": "76",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e002",
+                            "lec_attendance": "80",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e003",
+                            "lec_attendance": "86",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e004",
+                            "lec_attendance": "96",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e005",
+                            "lec_attendance": "100",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e006",
+                            "lec_attendance": "50",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e007",
+                            "lec_attendance": "20",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e008",
+                            "lec_attendance": "81",
+                            "lab_attendance": "100"
+                        },
+                        {
+                            "e_num": "2001e009",
+                            "lec_attendance": "90",
+                            "lab_attendance": "100"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
