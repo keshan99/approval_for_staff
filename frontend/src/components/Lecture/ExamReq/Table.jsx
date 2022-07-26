@@ -1,6 +1,5 @@
-
-import classes from './Table.module.css'
-import TableRaw from './TableRaw';
+import classes from "./Table.module.css";
+import TableRaw from "./TableRaw";
 // props.examReq
 
 const Table = (props) => {
@@ -10,9 +9,7 @@ const Table = (props) => {
       <div className={classes.container}>
         <div className={`${classes["row"]} ${classes["row--top-40"]} `}>
           <div className={classes["col-md-12"]}>
-            <h2 className={classes.row__title}>
-              EXAM APPROVAL FOR ACADEMIC STAFF
-            </h2>
+            <h2 className={classes.row__title}>EXAM APPROVAL</h2>
           </div>
         </div>
         <div className={`${classes["row"]} ${classes["row--top-20"]} `}>
@@ -32,13 +29,35 @@ const Table = (props) => {
                 </thead>
                 <tbody className={classes.table__tbody}>
                   {/* for loop for every examReq */}
-                  {props.examReq.map((examReq) => (
-                    <TableRaw
-                      key={examReq.E_num}
-                      examReq={examReq}
-                    />
-                  ))}
-                  
+
+                  {/* {props.examReq.map((examReq) => (
+                    <TableRaw key={examReq.E_num} examReq={examReq} />
+                  ))} */}
+
+                  {props.examReq.map((examReq) => {
+                    if (examReq.STATUS === "Pending") {
+                      return (
+                        <TableRaw
+                          key={examReq.E_num}
+                          examReq={examReq}
+                          user={props.user}
+                        />
+                      );
+                    }
+                  })}
+                  {props.examReq.map((examReq) => {
+                    if (examReq.STATUS !== "Pending") {
+                      return (
+                        <TableRaw
+                          key={examReq.E_num}
+                          examReq={examReq}
+                          user={props.user}
+                        />
+                      );
+                    }
+                  })}
+
+
                 </tbody>
               </table>
             </div>

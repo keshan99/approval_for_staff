@@ -1,7 +1,7 @@
 import { useEffect,useState }from 'react'
 //import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import { useAuthContext } from "../hooks/useAuthContext"
-import classes from './DashBoard.module.css';
+//import classes from './DashBoard.module.css';
 import StudentDashBoard from '../components/Student/Dashboard'
 import LectureDashBoard from '../components/Lecture/Dashboard'
 
@@ -53,48 +53,54 @@ const DashBoard = () => {
     }
   }
 
-  if (userState == "Student") {
+  if (userState === "Student") {
     return (
       // <div className={classes.DashBoard}>
       //   <h1>Student</h1>
       // </div>
       
       //send user to StudentDashBoard
-      <StudentDashBoard userState= {userState} />
+      <StudentDashBoard userState={userState} />
 
 
     )
-  } else if (userState == "Lecturer" || userState == "coordinator" || userState == "Lecture with coordinator") {
+  } else if (userState === "Lecturer" || userState === "coordinator" || userState === "Lecture with coordinator") {
     return (
-      <LectureDashBoard userState= {userState} />
+      // go to LectureDashBoard, send userState and user
+      <LectureDashBoard userState={userState} user={user} />
+      // <LectureDashBoard userState= {userState} />
     )
-  }else if (userState == "don't know" ) {
+  } else if (userState === "don't know") {
     return (
       <h1>"DashBoard don't know"</h1>
+    )
+  } else {
+    return (
+      <h1>loading</h1>
     )
   }
     
  
  
 
-  return (
-    <div className={classes.DashBoard}>
-      {/* <div className="workouts">
-        {workouts && workouts.map((workout) => (
-          <WorkoutDetails key={workout._id} workout={workout} />
-        ))}
-      </div> */}
-      {/* <WorkoutForm /> */}
+  // return (
+  //   <div className={classes.DashBoard}>
+  //     {/* <div className="workouts">
+  //       {workouts && workouts.map((workout) => (
+  //         <WorkoutDetails key={workout._id} workout={workout} />
+  //       ))}
+  //     </div> */}
+  //     {/* <WorkoutForm /> */}
 
-      {/* add button when click go to handleClick
-      <button onClick={handleClick}>click</button>
-      show ok
-      <h1>{answer}</h1> */}
-      <h1>"DashBoard"</h1>
+  //     {/* add button when click go to handleClick
+  //     <button onClick={handleClick}>click</button>
+  //     show ok
+  //     <h1>{answer}</h1> */}
+  //     <h1>"src/page/DashBoard"</h1>
 
 
-    </div>
-  )
+  //   </div>
+  // )
 }
 
 export default DashBoard
