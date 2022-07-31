@@ -37,7 +37,6 @@ const Table = (props) => {
                     if (examReq.status === "Pending") {
                       return (
                         <TableRaw
-                          key={examReq.E_num}
                           examReq={examReq}
                           user={props.user}
                         />
@@ -48,7 +47,6 @@ const Table = (props) => {
                     if (examReq.status !== "Pending") {
                       return (
                         <TableRaw
-                          key={examReq.E_num}
                           examReq={examReq}
                           user={props.user}
                         />
