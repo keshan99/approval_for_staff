@@ -3,7 +3,6 @@ import TableRaw from "./TableRaw";
 // props.examReq
 
 const Table = (props) => {
-  console.log(props.examReq[0]);
   return (
     <div>
       <div className={classes.container}>
@@ -16,7 +15,7 @@ const Table = (props) => {
           <div className={classes["col-md-12"]}>
             <div className={classes["table-container"]}>
               <table className={classes.table}>
-                <thead className={classes.table__thead}>
+                <thead className={classes.table__thead} >
                   <tr>
                     <th className={classes.table__th}>E number</th>
                     <th className={classes.table__th}>Subject ID</th>
@@ -24,7 +23,7 @@ const Table = (props) => {
                     <th className={classes.table__th}>attendance</th>
                     <th className={classes.table__th}>Lab attendance</th>
                     <th className={classes.table__th}>status</th>
-                    <th className={classes.table__th}>b</th>
+                    <th className={classes.table__th}></th>
                   </tr>
                 </thead>
                 <tbody className={classes.table__tbody}>
@@ -35,7 +34,7 @@ const Table = (props) => {
                   ))} */}
 
                   {props.examReq.map((examReq) => {
-                    if (examReq.STATUS === "Pending") {
+                    if (examReq.status === "Pending") {
                       return (
                         <TableRaw
                           key={examReq.E_num}
@@ -46,7 +45,7 @@ const Table = (props) => {
                     }
                   })}
                   {props.examReq.map((examReq) => {
-                    if (examReq.STATUS !== "Pending") {
+                    if (examReq.status !== "Pending") {
                       return (
                         <TableRaw
                           key={examReq.E_num}

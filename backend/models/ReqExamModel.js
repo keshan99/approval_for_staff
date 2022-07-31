@@ -8,8 +8,16 @@ const ReqExamSchema = new Schema(
       type: String,
       required: true,
     },
+    batch: {
+      type: String,
+      required: true,
+    },
     subject_ID: {
       type: String,
+      required: true,
+    },
+    attempt: {
+      type: Number,
       required: true,
     },
     attendance: {
@@ -20,7 +28,7 @@ const ReqExamSchema = new Schema(
       type: Number,
       required: true,
     },
-    accept: {
+    status: {
       type: String,
       required: true,
     },

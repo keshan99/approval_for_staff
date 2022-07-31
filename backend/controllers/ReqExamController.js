@@ -26,133 +26,54 @@ const getReqExam = async (req, res) => {
 };
 
 //input dummy data
-// const createReqExam_dummy = async (req, res) => {
-//   listdummy = [
-//     {
-//       student_ID: "2001e001",
-//       subject_ID: "AB1001",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e001",
-//       subject_ID: "AB1002",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e001",
-//       subject_ID: "AB1003",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e002",
-//       subject_ID: "AB1001",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e002",
-//       subject_ID: "AB1002",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e002",
-//       subject_ID: "AB1003",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e003",
-//       subject_ID: "AB1001",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e003",
-//       subject_ID: "AB1002",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e003",
-//       subject_ID: "AB1003",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e004",
-//       subject_ID: "AB1001",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e004",
-//       subject_ID: "AB1002",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e004",
-//       subject_ID: "AB1003",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e005",
-//       subject_ID: "AB1001",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e005",
-//       subject_ID: "AB1002",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//     {
-//       student_ID: "2001e005",
-//       subject_ID: "AB1003",
-//       attendance: 0.8,
-//       lab_attendance: 1.0,
-//       accept: "pending",
-//     },
-//   ];
-//   listdummy.forEach((element) => {
-//     const student_ID = element.student_ID;
-//     const subject_ID = element.subject_ID;
-//     const attendance = element.attendance;
-//     const lab_attendance = element.lab_attendance;
-//     const accept = element.accept;
+const createReqExam_dummy = async (req, res) => {
+  listdummy = [
 
-//     req.body = { student_ID, subject_ID, attendance, lab_attendance, accept };
-//     //console.log(req.body);
-//     createReqExam(req, res);
-//   });
-//   res.status(200).json(ReqExam);
-// };
+    {
+      student_ID: "2001e002",
+      batch: "E01",
+      subject_ID: "AB1040",
+      attempt: 1,
+      attendance: 80,
+      lab_attendance: 100,
+      status: "Pending",
+    },
+    {
+      student_ID: "2001e004",
+      batch: "E01",
+      subject_ID: "AB1040",
+      attempt: 1,
+      attendance: 50,
+      lab_attendance: 60,
+      status: "Not Approved",
+    },
+  ];
+  listdummy.forEach((element) => {
+    const student_ID = element.student_ID;
+    const subject_ID = element.subject_ID;
+    const attendance = element.attendance;
+    const lab_attendance = element.lab_attendance;
+    const status = element.status;
+    const batch = element.batch;
+    const attempt = element.attempt;
+    createReqExam({ body: { student_ID, batch, subject_ID, attendance, lab_attendance, status, attempt } }, res);
+
+    console.log(element);
+
+    // req.body = { student_ID, subject_ID, attendance, lab_attendance, accept };
+    // //console.log(req.body);
+    // createReqExam(req, res);
+  });
+  res.status(200).json({ok: "ok"});
+};
 
 // create a new ReqExam
 const createReqExam = async (req, res) => {
   //console.log(req.body);
-  const { student_ID, subject_ID, attendance, lab_attendance, accept } =
+  const { student_ID,batch, subject_ID, attendance, lab_attendance, status } =
     req.body;
+  
+  const attempt = 1;
 
   let emptyFields = [];
 
@@ -168,8 +89,11 @@ const createReqExam = async (req, res) => {
   if (!lab_attendance) {
     emptyFields.push("lab_attendance");
   }
-  if (!accept) {
-    emptyFields.push("accept");
+  if (!status) {
+    emptyFields.push("status");
+  }
+  if (!batch) {
+    emptyFields.push("batch");
   }
   if (emptyFields.length > 0) {
     return res
@@ -186,18 +110,22 @@ const createReqExam = async (req, res) => {
       reqExam = await ReqExam.create({
         _id,
         student_ID,
+        batch,
         subject_ID,
+        attempt,
         attendance,
         lab_attendance,
-        accept,
+        status,
       });
     } else {
       reqExam = await ReqExam.create({
         student_ID,
+        batch,
         subject_ID,
+        attempt,
         attendance,
         lab_attendance,
-        accept,
+        status,
       });
     }
    
@@ -253,4 +181,5 @@ module.exports = {
   createReqExam,
   deleteReqExam,
   updateReqExam,
+  createReqExam_dummy
 };
