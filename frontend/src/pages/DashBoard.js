@@ -1,9 +1,9 @@
-import { useEffect,useState }from 'react'
+import { useEffect, useState } from "react";
 //import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
-import { useAuthContext } from "../hooks/useAuthContext"
+import { useAuthContext } from "../hooks/useAuthContext";
 //import classes from './DashBoard.module.css';
-import StudentDashBoard from '../components/Student/Dashboard'
-import LectureDashBoard from '../components/Lecture/Dashboard'
+import StudentDashBoard from "../components/Student/Dashboard";
+import LectureDashBoard from "../components/Lecture/Dashboard";
 
 // components
 //import WorkoutDetails from '../components/WorkoutDetails'
@@ -32,56 +32,51 @@ const DashBoard = () => {
       getUserState();
       //console.log(user)
     }
-  // }, [dispatch, user])
-  }, [user])
+    // }, [dispatch, user])
+  }, [user]);
 
   const getUserState = async () => {
     if (!user) {
-      return
+      return;
     }
 
-    const response = await fetch('/api/val/userState' , {
-      method: 'get',
+    const response = await fetch("/api/val/userState", {
+      method: "get",
       headers: {
-        'Authorization': `Bearer ${user.token}`
-      }
-    })
-    const json = await response.json()
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    const json = await response.json();
 
     if (response.ok) {
       setuserState(json.type);
     }
-  }
+  };
 
   if (userState === "Student") {
     return (
       // <div className={classes.DashBoard}>
       //   <h1>Student</h1>
       // </div>
-      
+
       //send user to StudentDashBoard
       <StudentDashBoard userState={userState} />
-
-
-    )
-  } else if (userState === "Lecturer" || userState === "coordinator" || userState === "Lecture with coordinator") {
+    );
+  } else if (
+    userState === "Lecturer" ||
+    userState === "coordinator" ||
+    userState === "Lecture with coordinator"
+  ) {
     return (
       // go to LectureDashBoard, send userState and user
       <LectureDashBoard userState={userState} user={user} />
       // <LectureDashBoard userState= {userState} />
-    )
+    );
   } else if (userState === "don't know") {
-    return (
-      <h1>"DashBoard don't know"</h1>
-    )
+    return <h1>"DashBoard don't know"</h1>;
   } else {
-    return (
-      <h1>loading</h1>
-    )
+    return <h1>loading</h1>;
   }
-    
- 
- 
 
   // return (
   //   <div className={classes.DashBoard}>
@@ -98,9 +93,8 @@ const DashBoard = () => {
   //     <h1>{answer}</h1> */}
   //     <h1>"src/page/DashBoard"</h1>
 
-
   //   </div>
   // )
-}
+};
 
-export default DashBoard
+export default DashBoard;
