@@ -62,33 +62,29 @@ const TableRaw = (props) => {
                                 : `${classes["table-row__p-status"]} ${classes["status--yellow"]} ${classes["status"]} `
                     }
 
+          // className={`${classes["table-row__p-status"]} ${classes["status--green"]} ${classes["status"]} `}
+        >
+          {props.examReq.status}
+        </p>
+      </td>
 
-
-
-                // className={`${classes["table-row__p-status"]} ${classes["status--green"]} ${classes["status"]} `}
-                >
-                    {props.examReq.status}
-                </p>
-            </td>
-
-            {/* <td className={classes["table-row__td"]}>icons</td> */}
-            <td className={classes["table-row__td"]}>
-                {props.examReq.status === "Pending" ? (
-                    <ButtonGroup
-                        size="small"
-                        aria-label="small button group"
-                        variant="outlined"
-                    >
-                        <Button>Approve</Button>
-                        <Button>Reject</Button>
-                    </ButtonGroup>
-                ) : (
-                    <p></p>
-                )}
-            </td>
-        </tr>
-    );
+      {/* <td className={classes["table-row__td"]}>icons</td> */}
+      <td className={classes["table-row__td"]}>
+        {props.examReq.status === "Pending" ? (
+          <ButtonGroup
+            size="small"
+            aria-label="small button group"
+            variant="outlined"
+          >
+            <Button>Approve</Button>
+            <Button>Reject</Button>
+          </ButtonGroup>
+        ) : (
+          <p></p>
+        )}
+      </td>
+    </tr>
+  );
 };
 
 export default TableRaw;
-
