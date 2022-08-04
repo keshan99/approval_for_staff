@@ -3,7 +3,7 @@ import classes from "../ExamReq/Table.module.css";
 // props.examReq
 
 const Table = (props) => {
-  console.log(props.examReq[0]);
+  console.log(props.courseReq[0]);
   return (
     <div>
       <div className={classes.container}>

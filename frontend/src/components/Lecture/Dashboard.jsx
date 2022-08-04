@@ -53,6 +53,7 @@ export default function BasicTabs(props) {
 
   const { user } = useAuthContext();
   const [examReq, setExamReq] = useState([]);
+  const [courseReq, setCourseReq] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:4000/api/val/getExamReq", {
@@ -64,11 +65,23 @@ export default function BasicTabs(props) {
       .then((res) => res.json())
       .then((data) => {
         setExamReq(data);
-      }
-        , []);
+      }, []);
     // setExamReq(temp);
-
   }, [setExamReq]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/api/val/getCourseReq", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCourseReq(data);
+      }, []);
+    // setExamReq(temp);
+  }, [setCourseReq]);
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -102,7 +115,7 @@ export default function BasicTabs(props) {
       </Dashboard>
       <Dashboard value={value} index={1}>
         <div>
-          <Table2 examReq={examReq} user={props.user} />
+          <Table2 courseReq={courseReq} user={props.user} />
         </div>
       </Dashboard>
     </Box>
