@@ -8,7 +8,7 @@ const ReqExamSchema = new Schema(
       type: String,
       required: true,
     },
-    batch: {
+    academic_year: {
       type: String,
       required: true,
     },

@@ -21,6 +21,7 @@ const Dashboard = (props) => {
         setExamReq(data);
       }
         , []);
+    // setExamReq(temp);
 
   }, [setExamReq]);
 

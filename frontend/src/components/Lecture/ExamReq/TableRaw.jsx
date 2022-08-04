@@ -10,7 +10,7 @@ const TableRaw = (props) => {
                 <div className={classes["table-row__info"]}>
                     <p className={classes["table-row__name"]}>{props.examReq.student_ID}</p>
                     <span className={classes["table-row__small"]}>
-                        {props.examReq.batch}
+                        {props.examReq.academic_year}
                     </span>
                 </div>
             </td>

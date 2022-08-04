@@ -1,43 +1,49 @@
 {
     "subject": [
         {
+            "_id": 100,
             "subject_ID": "AB1010",
-            "subject_name": "first subject",
+            "subject_name": "Algorithm",
             "deparment": "computer",
             "corrdinator_email": "amal@gmail.com",
             "semester": "1"
         },
         {
+            "_id":101 ,
             "subject_ID": "AB1020",
-            "subject_name": "second subject",
+            "subject_name": "python",
             "deparment": "computer",
             "corrdinator_email": "isuru@gmail.com",
             "semester": "1"
         },
         {
+            "_id": 102,
             "subject_ID": "AB1030",
-            "subject_name": "third subject",
+            "subject_name": "java",
             "deparment": "computer",
             "corrdinator_email": "amal@gmail.com",
             "semester": "1"
         },
         {
+            "_id": 103,
             "subject_ID": "AB1040",
-            "subject_name": "fourth subject",
+            "subject_name": "ML",
             "deparment": "computer",
             "corrdinator_email": "isuru@gmail.com",
             "semester": "1"
         },
         {
+            "_id": 104,
             "subject_ID": "AB1050",
-            "subject_name": "fifth subject",
+            "subject_name": "c#",
             "deparment": "computer",
             "corrdinator_email": "amal@gmail.com",
             "semester": "1"
         },
         {
+            "_id": 105,
             "subject_ID": "AB1060",
-            "subject_name": "sixth subject",
+            "subject_name": "javascript",
             "deparment": "computer",
             "corrdinator_email": "channa@gmail.com",
             "semester": "1"

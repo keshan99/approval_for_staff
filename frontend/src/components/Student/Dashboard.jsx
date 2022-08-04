@@ -8,49 +8,43 @@ const Dashboard = (props) => {
   const temp = [
     {
       _id:1,
-      Subject_ID: "AB1101",
+      subject_ID: "AB1101",
       subject_name: "Algorithm",
-      attempt: 1,
       status: "not choose",
       credit: 3,
     },
     {
       _id:11,
-      Subject_ID: "AB1201",
+      subject_ID: "AB1201",
       subject_name: "python",
-      attempt: 1,
       status: "not choose",
       credit: 3,
     },
     {
       _id:111,
-      Subject_ID: "AB1301",
+      subject_ID: "AB1301",
       subject_name: "java",
-      attempt: 1,
       status: "not choose",
       credit: 3,
     },
     {
       _id:121,
-      Subject_ID: "AB1401",
+      subject_ID: "AB1401",
       subject_name: "ML",
-      attempt: 1,
       status: "not choose",
       credit: 3,
     },
     {
       _id:131,
-      Subject_ID: "AB1501",
+      subject_ID: "AB1501",
       subject_name: "c#",
-      attempt: 1,
       status: "not choose",
       credit: 3,
     },
     {
       _id:145,
-      Subject_ID: "AB1601",
+      subject_ID: "AB1601",
       subject_name: "javascript",
-      attempt: 1,
       status: "not choose",
       credit: 3,
     },
@@ -61,17 +55,18 @@ const Dashboard = (props) => {
   const [listExamReq, setListExamReq] = useState([]);
 
   useEffect(() => {
-    // fetch("http://localhost:4000/api/val/getExamReq", {
-    //   method: "GET",
-    //   headers: {
-    //     'Authorization': `Bearer ${user.token}`
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setExamReq(data);
-    //   }
-    //     , []);
+    fetch("http://localhost:4000/api/val/getSubjectDetails", {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${user.token}`
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // setExamReq(data);
+        console.log(data);
+      }
+        , []);
     setExamReq(temp);
 
   }, [setExamReq]);

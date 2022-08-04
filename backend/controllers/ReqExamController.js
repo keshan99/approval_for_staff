@@ -31,7 +31,7 @@ const createReqExam_dummy = async (req, res) => {
 
     {
       student_ID: "2001e002",
-      batch: "E01",
+      academic_year: "E01",
       subject_ID: "AB1040",
       attempt: 1,
       attendance: 80,
@@ -40,7 +40,7 @@ const createReqExam_dummy = async (req, res) => {
     },
     {
       student_ID: "2001e004",
-      batch: "E01",
+      academic_year: "E01",
       subject_ID: "AB1040",
       attempt: 1,
       attendance: 50,
@@ -54,9 +54,9 @@ const createReqExam_dummy = async (req, res) => {
     const attendance = element.attendance;
     const lab_attendance = element.lab_attendance;
     const status = element.status;
-    const batch = element.batch;
+    const academic_year = element.academic_year;
     const attempt = element.attempt;
-    createReqExam({ body: { student_ID, batch, subject_ID, attendance, lab_attendance, status, attempt } }, res);
+    createReqExam({ body: { student_ID, academic_year, subject_ID, attendance, lab_attendance, status, attempt } }, res);
 
     console.log(element);
 
@@ -70,7 +70,7 @@ const createReqExam_dummy = async (req, res) => {
 // create a new ReqExam
 const createReqExam = async (req, res) => {
   //console.log(req.body);
-  const { student_ID,batch, subject_ID, attendance, lab_attendance, status } =
+  const { student_ID,academic_year, subject_ID, attendance, lab_attendance, status } =
     req.body;
   
   const attempt = 1;
@@ -92,8 +92,8 @@ const createReqExam = async (req, res) => {
   if (!status) {
     emptyFields.push("status");
   }
-  if (!batch) {
-    emptyFields.push("batch");
+  if (!academic_year) {
+    emptyFields.push("academic_year");
   }
   if (emptyFields.length > 0) {
     return res
@@ -110,7 +110,7 @@ const createReqExam = async (req, res) => {
       reqExam = await ReqExam.create({
         _id,
         student_ID,
-        batch,
+        academic_year,
         subject_ID,
         attempt,
         attendance,
@@ -120,7 +120,7 @@ const createReqExam = async (req, res) => {
     } else {
       reqExam = await ReqExam.create({
         student_ID,
-        batch,
+        academic_year,
         subject_ID,
         attempt,
         attendance,
