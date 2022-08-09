@@ -102,7 +102,7 @@ export default function BasicTabs(props) {
       //send list of listExamReq as body
       body: JSON.stringify({
         id: id,
-        state: "rejected",
+        state: "Not Approved",
       }),
     })
       .then((res) => res.json())
