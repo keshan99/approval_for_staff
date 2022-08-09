@@ -1,7 +1,7 @@
 import classes from "./Table1.module.css";
 import TableRaw1 from "./TableRaw1";
 import Button from "@mui/material/Button";
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from "@mui/icons-material/Send";
 // props.examReq
 
 const Table1 = (props) => {
@@ -28,16 +28,26 @@ const Table1 = (props) => {
                 <tbody className={classes.table__tbody}>
                   {/* for loop for every examReq */}
                   {props.examReq.map((exam) => (
-                    <TableRaw1 examReq={exam} removeExamReq={ props.removeExamReq} />
+                    <TableRaw1
+                      examReq={exam}
+                      removeExamReq={props.removeExamReq}
+                    />
                   ))}
                 </tbody>
               </table>
               <div className={classes.submit_btn}>
-              <Button variant="contained" endIcon={<SendIcon />} color="success">
-                submit
-              </Button>
+                <Button
+                  variant="contained"
+                  endIcon={<SendIcon />}
+                  color="success"
+                  onClick={() => {
+                    props.submitExamReq(props.examReq._id);
+                    // console.log(props.examReq._id)
+                  }}
+                >
+                  submit
+                </Button>
               </div>
-              
             </div>
           </div>
         </div>

@@ -1,6 +1,314 @@
 const ReqExam = require("../models/ReqExamModel");
 const mongoose = require("mongoose");
 
+const attendanceDummy = [
+  {
+    batch: "E001",
+    record: [
+      {
+        subject_ID: "AB1010",
+        record: [
+          {
+            e_num: "2001e001",
+            lec_attendance: "76",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e002",
+            lec_attendance: "80",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e003",
+            lec_attendance: "86",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e004",
+            lec_attendance: "96",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e005",
+            lec_attendance: "100",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e006",
+            lec_attendance: "50",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e007",
+            lec_attendance: "20",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e008",
+            lec_attendance: "81",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e009",
+            lec_attendance: "90",
+            lab_attendance: "100"
+          }
+        ]
+      },
+      {
+        subject_ID: "AB1020",
+        record: [
+          {
+            e_num: "2001e001",
+            lec_attendance: "76",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e002",
+            lec_attendance: "80",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e003",
+            lec_attendance: "86",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e004",
+            lec_attendance: "96",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e005",
+            lec_attendance: "100",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e006",
+            lec_attendance: "50",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e007",
+            lec_attendance: "20",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e008",
+            lec_attendance: "81",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e009",
+            lec_attendance: "90",
+            lab_attendance: "100"
+          }
+        ]
+      },
+      {
+        subject_ID: "AB1030",
+        record: [
+          {
+            e_num: "2001e001",
+            lec_attendance: "76",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e002",
+            lec_attendance: "80",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e003",
+            lec_attendance: "86",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e004",
+            lec_attendance: "96",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e005",
+            lec_attendance: "100",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e006",
+            lec_attendance: "50",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e007",
+            lec_attendance: "20",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e008",
+            lec_attendance: "81",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e009",
+            lec_attendance: "90",
+            lab_attendance: "100"
+          }
+        ]
+      },
+      {
+        subject_ID: "AB1040",
+        record: [
+          {
+            e_num: "2001e001",
+            lec_attendance: "76",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e002",
+            lec_attendance: "80",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e003",
+            lec_attendance: "86",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e004",
+            lec_attendance: "96",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e005",
+            lec_attendance: "100",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e006",
+            lec_attendance: "50",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e007",
+            lec_attendance: "20",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e008",
+            lec_attendance: "81",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e009",
+            lec_attendance: "90",
+            lab_attendance: "100"
+          }
+        ]
+      },
+      {
+        subject_ID: "AB1050",
+        record: [
+          {
+            e_num: "2001e001",
+            lec_attendance: "76",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e002",
+            lec_attendance: "80",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e003",
+            lec_attendance: "86",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e004",
+            lec_attendance: "96",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e005",
+            lec_attendance: "100",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e006",
+            lec_attendance: "50",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e007",
+            lec_attendance: "20",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e008",
+            lec_attendance: "81",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e009",
+            lec_attendance: "90",
+            lab_attendance: "100"
+          }
+        ]
+      },
+      {
+        subject_ID: "AB1060",
+        record: [
+          {
+            e_num: "2001e001",
+            lec_attendance: "76",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e002",
+            lec_attendance: "80",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e003",
+            lec_attendance: "86",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e004",
+            lec_attendance: "96",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e005",
+            lec_attendance: "100",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e006",
+            lec_attendance: "50",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e007",
+            lec_attendance: "20",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e008",
+            lec_attendance: "81",
+            lab_attendance: "100"
+          },
+          {
+            e_num: "2001e009",
+            lec_attendance: "90",
+            lab_attendance: "100"
+          }
+        ]
+      }
+    ]
+  }
+];
+
 // get all ReqExams
 const getReqExams = async (req, res) => {
   const ReqExams = await ReqExam.find({}).sort({ createdAt: -1 });
@@ -34,7 +342,7 @@ const createReqExam_dummy = async (req, res) => {
       academic_year: "E01",
       subject_ID: "AB1040",
       attempt: 1,
-      attendance: 80,
+     lec_attendance: 80,
       lab_attendance: 100,
       status: "Pending",
     },
@@ -43,7 +351,7 @@ const createReqExam_dummy = async (req, res) => {
       academic_year: "E01",
       subject_ID: "AB1040",
       attempt: 1,
-      attendance: 50,
+     lec_attendance: 50,
       lab_attendance: 60,
       status: "Not Approved",
     },
@@ -51,16 +359,16 @@ const createReqExam_dummy = async (req, res) => {
   listdummy.forEach((element) => {
     const student_ID = element.student_ID;
     const subject_ID = element.subject_ID;
-    const attendance = element.attendance;
+    const lec_attendance = element.attendance;
     const lab_attendance = element.lab_attendance;
     const status = element.status;
     const academic_year = element.academic_year;
     const attempt = element.attempt;
-    createReqExam({ body: { student_ID, academic_year, subject_ID, attendance, lab_attendance, status, attempt } }, res);
+    createOneReqExam({ body: { student_ID, academic_year, subject_ID, lec_attendance, lab_attendance, status, attempt } }, res);
 
     console.log(element);
 
-    // req.body = { student_ID, subject_ID, attendance, lab_attendance, accept };
+    // req.body = { student_ID, subject_ID, lec_attendance, lab_attendance, accept };
     // //console.log(req.body);
     // createReqExam(req, res);
   });
@@ -68,11 +376,11 @@ const createReqExam_dummy = async (req, res) => {
 };
 
 // create a new ReqExam
-const createReqExam = async (req, res) => {
+const createOneReqExam = async (req, res) => {
   //console.log(req.body);
   const { student_ID,academic_year, subject_ID, attendance, lab_attendance, status } =
     req.body;
-  
+  const lec_attendance = attendance
   const attempt = 1;
 
   let emptyFields = [];
@@ -113,7 +421,7 @@ const createReqExam = async (req, res) => {
         academic_year,
         subject_ID,
         attempt,
-        attendance,
+        lec_attendance,
         lab_attendance,
         status,
       });
@@ -123,7 +431,7 @@ const createReqExam = async (req, res) => {
         academic_year,
         subject_ID,
         attempt,
-        attendance,
+        lec_attendance,
         lab_attendance,
         status,
       });
@@ -175,10 +483,25 @@ const updateReqExam = async (req, res) => {
   res.status(200).json(reqExam);
 };
 
+// insert multiple ReqExams to mongodb database
+const insertMultipleReqExams = async (req, res) => {
+  const { ReqExams } = req.body;
+  if (!ReqExams) {
+    return res.status(400).json({ error: "No ReqExams" });
+  }
+  try {
+    const newReqExams = await ReqExam.insertMany(ReqExams);
+    res.status(200).json(newReqExams);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
+
+
 module.exports = {
   getReqExams,
   getReqExam,
-  createReqExam,
+  createOneReqExam,
   deleteReqExam,
   updateReqExam,
   createReqExam_dummy

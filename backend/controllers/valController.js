@@ -10,6 +10,7 @@ const subject = [
     corrdinator_email: "amal@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    credit: "3",
   },
   {
     _id: 101,
@@ -19,6 +20,7 @@ const subject = [
     corrdinator_email: "isuru@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    credit: "3",
   },
   {
     _id: 102,
@@ -28,6 +30,7 @@ const subject = [
     corrdinator_email: "amal@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    credit: "3",
   },
   {
     _id: 103,
@@ -37,6 +40,7 @@ const subject = [
     corrdinator_email: "isuru@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    credit: "3",
   },
   {
     _id: 104,
@@ -46,6 +50,7 @@ const subject = [
     corrdinator_email: "amal@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    credit: "3",
   },
   {
     _id: 105,
@@ -55,6 +60,7 @@ const subject = [
     corrdinator_email: "channa@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    credit: "3",
   },
 ];
 

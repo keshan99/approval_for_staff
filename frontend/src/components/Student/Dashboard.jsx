@@ -5,51 +5,6 @@ import { useState, useEffect } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Dashboard = (props) => {
-  const temp = [
-    {
-      _id:1,
-      subject_ID: "AB1101",
-      subject_name: "Algorithm",
-      status: "not choose",
-      credit: 3,
-    },
-    {
-      _id:11,
-      subject_ID: "AB1201",
-      subject_name: "python",
-      status: "not choose",
-      credit: 3,
-    },
-    {
-      _id:111,
-      subject_ID: "AB1301",
-      subject_name: "java",
-      status: "not choose",
-      credit: 3,
-    },
-    {
-      _id:121,
-      subject_ID: "AB1401",
-      subject_name: "ML",
-      status: "not choose",
-      credit: 3,
-    },
-    {
-      _id:131,
-      subject_ID: "AB1501",
-      subject_name: "c#",
-      status: "not choose",
-      credit: 3,
-    },
-    {
-      _id:145,
-      subject_ID: "AB1601",
-      subject_name: "javascript",
-      status: "not choose",
-      credit: 3,
-    },
-  ];
-
   const { user } = useAuthContext();
   const [examReq, setExamReq] = useState([]);
   const [listExamReq, setListExamReq] = useState([]);
@@ -58,17 +13,15 @@ const Dashboard = (props) => {
     fetch("http://localhost:4000/api/val/getSubjectDetails", {
       method: "GET",
       headers: {
-        'Authorization': `Bearer ${user.token}`
+        Authorization: `Bearer ${user.token}`,
       },
     })
       .then((res) => res.json())
       .then((data) => {
-        // setExamReq(data);
+        setExamReq(data);
         console.log(data);
-      }
-        , []);
-    setExamReq(temp);
-
+      }, []);
+    // setExamReq(temp);
   }, [setExamReq]);
 
   //funshion to add examReq element when button press(add to list)
@@ -80,7 +33,7 @@ const Dashboard = (props) => {
     const newExamReq = examReq.filter((examReq) => examReq._id !== id);
     setExamReq(newExamReq);
     setListExamReq([...listExamReq, newvalue[0]]);
-  }
+  };
 
   const removeExamReq = (id) => {
     // get examreq by id
@@ -91,24 +44,53 @@ const Dashboard = (props) => {
 
     setListExamReq(newExamReq);
     setExamReq([...examReq, newvalue[0]]);
-  }
-  
-
-  
-    return (
-      <div>
-        
-        <Table examReq={examReq} user={props.user} addExamReq={addExamReq} key="Table_stu" />
-        {/* if  listExamReq != null show it*/}
-        {listExamReq.length > 0 ? (
-          <Table1 examReq={listExamReq} user={props.user} removeExamReq={removeExamReq} key="Table1_stu" />
-        ) : (
-          <div></div>
-        )}
-        {/* <Table1 examReq={listExamReq} user={props.user} key="Table_stu" /> */}
-      </div>
-    );
   };
+
+  //funshion for submit examReq
+  const submitExamReq = (list) => {
+    // get examreq by id
+    console.log("submit");
+    //console.log list of listExamReq
+    console.log(listExamReq);
+
+    fetch("http://localhost:4000/api/exam/", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setExamReq(data);
+        console.log(data);
+      }, []);
+
+  };
+
+  return (
+    <div>
+      <Table
+        examReq={examReq}
+        user={props.user}
+        addExamReq={addExamReq}
+        key="Table_stu"
+      />
+      {/* if  listExamReq != null show it*/}
+      {listExamReq.length > 0 ? (
+        <Table1
+          examReq={listExamReq}
+          user={props.user}
+          removeExamReq={removeExamReq}
+          submitExamReq={submitExamReq}
+          key="Table1_stu"
+        />
+      ) : (
+        <div></div>
+      )}
+      {/* <Table1 examReq={listExamReq} user={props.user} key="Table_stu" /> */}
+    </div>
+  );
+};
 
 //EXPORT MODULE
 export default Dashboard;

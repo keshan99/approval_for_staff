@@ -2,7 +2,7 @@ const express = require('express')
 const {
   getReqExams, 
   getReqExam, 
-  createReqExam, 
+  createOneReqExam, 
   deleteReqExam, 
   updateReqExam,
   createReqExam_dummy
@@ -19,7 +19,7 @@ router.get('/', getReqExams)
 router.get('/:id', getReqExam)
 
 // POST a new ReqExam
-router.post('/', createReqExam)
+router.post('/', createOneReqExam)
 
 // DELETE a ReqExam
 router.delete('/:id', deleteReqExam)
