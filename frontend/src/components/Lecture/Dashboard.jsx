@@ -64,11 +64,60 @@ export default function BasicTabs(props) {
       .then((res) => res.json())
       .then((data) => {
         setExamReq(data);
-      }
-        , []);
+      }, []);
     // setExamReq(temp);
+  }, [examReq]);
 
-  }, [setExamReq]);
+  //funshion to change state when button press approve
+  const approveReq = (id) => {
+    fetch("http://localhost:4000/api/exam/setExamReqStatus", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+        "Content-Type": "application/json"
+      },
+      //send list of listExamReq as body
+      body: JSON.stringify({
+        id: id,
+        state: "approved",
+    }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+
+        setExamReq([]);
+
+      }, []);
+
+  }
+
+  //funshion to change state when button press reject
+  const rejectReq = (id) => {
+    fetch("http://localhost:4000/api/exam/setExamReqStatus", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+        "Content-Type": "application/json"
+      },
+      //send list of listExamReq as body
+      body: JSON.stringify({
+        id: id,
+        state: "rejected",
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+
+        setExamReq([]);
+      }, []);
+  }
+
+  // const rejectReq = (id) => {
+  //   console.log(id);
+  // };
+  // const approveReq = (id) => {
+  //   console.log(id);
+  // };
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -96,13 +145,23 @@ export default function BasicTabs(props) {
             </p>
           ))} */}
 
-          <Table examReq={examReq} user={props.user} />
+          <Table
+            examReq={examReq}
+            user={props.user}
+            rejectReq={rejectReq}
+            approveReq={approveReq}
+          />
           {/* <Table2 examReq={examReq_list} user={props.user} /> */}
         </div>
       </Dashboard>
       <Dashboard value={value} index={1}>
         <div>
-          <Table2 examReq={examReq} user={props.user} />
+          <Table2
+            examReq={examReq}
+            user={props.user}
+            rejectReq={rejectReq}
+            approveReq={approveReq}
+          />
         </div>
       </Dashboard>
     </Box>
