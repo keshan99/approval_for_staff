@@ -35,7 +35,16 @@ const Table = (props) => {
 
                   {props.examReq.map((examReq) => {
                     if (examReq.status === "Pending") {
-                      return <TableRaw examReq={examReq} user={props.user} />;
+                      //console.log(examReq);
+                      return (
+                        <TableRaw
+                          examReq={examReq}
+                          user={props.user}
+                          rejectReq={props.rejectReq}
+                          approveReq={props.approveReq}
+
+                        />
+                      );
                     }
                   })}
                   {props.examReq.map((examReq) => {

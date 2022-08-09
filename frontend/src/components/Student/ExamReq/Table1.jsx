@@ -41,7 +41,7 @@ const Table1 = (props) => {
                   endIcon={<SendIcon />}
                   color="success"
                   onClick={() => {
-                    props.submitExamReq(props.examReq._id);
+                    props.submitExamReq(props.examReq);
                     // console.log(props.examReq._id)
                   }}
                 >

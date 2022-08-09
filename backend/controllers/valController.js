@@ -220,7 +220,7 @@ const getExamReq = async (req, res) => {
       subject_name: subject_name,
     });
   });
-  console.log(newArr);
+  //console.log(newArr);
 
   res.status(200).json(newArr);
 };
@@ -237,6 +237,30 @@ const getSubjectDetails = async (req, res) => {
       };
     }
     );
+
+    // add status: "choose" as every subject list items that student has already choose
+    const student_e_num = req.user.email.split("@")[0];
+    //get only subject_id list from subject
+    const subject_ID_list = newSubject.map((subj) => subj.subject_ID);
+    
+    
+    //console.log(subject_ID_list);
+
+    
+    const examReq_list = await ReqExam.find({
+      student_ID: student_e_num,
+      subject_ID: { $in: subject_ID_list },
+    });
+    
+    //remove examReq_list item from newSubject list
+    examReq_list.forEach((exam) => {
+      const index = newSubject.findIndex(
+        (subj) => subj.subject_ID === exam.subject_ID
+      );
+      newSubject.splice(index, 1);
+    }
+    );
+    
     
     res.status(200).json(newSubject);
   } else {

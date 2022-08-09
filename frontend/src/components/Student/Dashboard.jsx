@@ -8,6 +8,8 @@ const Dashboard = (props) => {
   const { user } = useAuthContext();
   const [examReq, setExamReq] = useState([]);
   const [listExamReq, setListExamReq] = useState([]);
+  //for change state
+  const [state, setState] = useState(1);
 
   useEffect(() => {
     fetch("http://localhost:4000/api/val/getSubjectDetails", {
@@ -19,10 +21,11 @@ const Dashboard = (props) => {
       .then((res) => res.json())
       .then((data) => {
         setExamReq(data);
+        setListExamReq([]);
         console.log(data);
       }, []);
     // setExamReq(temp);
-  }, [setExamReq]);
+  }, [setExamReq,state]);
 
   //funshion to add examReq element when button press(add to list)
   const addExamReq = (id) => {
@@ -47,22 +50,28 @@ const Dashboard = (props) => {
   };
 
   //funshion for submit examReq
-  const submitExamReq = (list) => {
+  const submitExamReq = (examReq) => {
     // get examreq by id
     console.log("submit");
     //console.log list of listExamReq
-    console.log(listExamReq);
+    
 
-    fetch("http://localhost:4000/api/exam/", {
-      method: "GET",
+    fetch("http://localhost:4000/api/exam/insertReqExams", {
+      method: "POST",
       headers: {
         Authorization: `Bearer ${user.token}`,
+        "Content-Type": "application/json"
       },
+      //send list of listExamReq as body
+      body: JSON.stringify({
+        listExamReq: listExamReq,
+    }),
     })
       .then((res) => res.json())
       .then((data) => {
-        setExamReq(data);
         console.log(data);
+        setState(state + 1);
+        
       }, []);
 
   };
