@@ -10,6 +10,7 @@ const subject = [
     corrdinator_email: "amal@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    prerequisites: ["AC1012"],
   },
   {
     _id: 101,
@@ -19,6 +20,7 @@ const subject = [
     corrdinator_email: "isuru@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    prerequisites: ["EC3053"],
   },
   {
     _id: 102,
@@ -28,6 +30,7 @@ const subject = [
     corrdinator_email: "amal@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    prerequisites: [],
   },
   {
     _id: 103,
@@ -37,6 +40,7 @@ const subject = [
     corrdinator_email: "isuru@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    prerequisites: [],
   },
   {
     _id: 104,
@@ -46,6 +50,7 @@ const subject = [
     corrdinator_email: "amal@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    prerequisites: ["SC5012"],
   },
   {
     _id: 105,
@@ -55,6 +60,7 @@ const subject = [
     corrdinator_email: "channa@gmail.com",
     semester: "1",
     academic_year: "2018/19",
+    prerequisites: [],
   },
 ];
 
@@ -113,57 +119,194 @@ const teacher = [
   },
 ];
 
+const results = [
+  {
+    e_num: "2001e001",
+    subject_ID: "AC1012",
+    result: "A",
+  },
+  {
+    e_num: "2001e001",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e001",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e002",
+    subject_ID: "AC1012",
+    result: "E",
+  },
+  {
+    e_num: "2001e002",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e002",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e003",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e003",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e003",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e004",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e004",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e004",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e005",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e005",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e005",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e006",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e006",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e006",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e007",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e007",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e007",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e008",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e008",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e008",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+  {
+    e_num: "2001e009",
+    subject_ID: "AC1012",
+    result: "C+",
+  },
+  {
+    e_num: "2001e009",
+    subject_ID: "EC3053",
+    result: "E",
+  },
+  {
+    e_num: "2001e009",
+    subject_ID: "SC5012",
+    result: "B",
+  },
+];
+
 const funGetUserState = async (req) => {
-    // function for checking if student is in the database
-    const checkStudent = (e_num) => {
-      for (let i = 0; i < student.length; i++) {
-        if (student[i].e_num === e_num) {
-          return true;
-        }
+  // function for checking if student is in the database
+  const checkStudent = (e_num) => {
+    for (let i = 0; i < student.length; i++) {
+      if (student[i].e_num === e_num) {
+        return true;
       }
-      return false;
-    };
-    // function for checking if teacher is in the database
-    const checkLecture = (email) => {
-      for (let i = 0; i < teacher.length; i++) {
-        if (teacher[i].email === email) {
-          return true;
-        }
+    }
+    return false;
+  };
+  // function for checking if teacher is in the database
+  const checkLecture = (email) => {
+    for (let i = 0; i < teacher.length; i++) {
+      if (teacher[i].email === email) {
+        return true;
       }
-      return false;
-    };
-  
-    // function for checking if coordinator is in the database
-    const checkCoordinator = (email) => {
-      for (let i = 0; i < subject.length; i++) {
-        if (subject[i].corrdinator_email === email) {
-          return true;
-        }
+    }
+    return false;
+  };
+
+  // function for checking if coordinator is in the database
+  const checkCoordinator = (email) => {
+    for (let i = 0; i < subject.length; i++) {
+      if (subject[i].corrdinator_email === email) {
+        return true;
       }
-      return false;
-    };
-  
-    const myArray = req.user.email.split("@");
-    let useType = "";
-    if (myArray[1] == "eng.jfn.ac.lk" && checkStudent(myArray[0])) {
-      useType = "Student";
-      //} else if (myArray[1] == "eng.jfn.ac.lk" && checkLecture(myArray[0])) {
-    } else if (checkLecture(req.user.email)) {
-      useType = "Lecture";
-      if (checkCoordinator(req.user.email)) {
-        useType = "Lecture with coordinator";
-      }
-    } else if (checkCoordinator(req.user.email)) {
-      useType = "coordinator";
-    } else {
-      useType = "don't know";
+    }
+    return false;
+  };
+
+  const myArray = req.user.email.split("@");
+  let useType = "";
+  if (myArray[1] == "eng.jfn.ac.lk" && checkStudent(myArray[0])) {
+    useType = "Student";
+    //} else if (myArray[1] == "eng.jfn.ac.lk" && checkLecture(myArray[0])) {
+  } else if (checkLecture(req.user.email)) {
+    useType = "Lecture";
+    if (checkCoordinator(req.user.email)) {
+      useType = "Lecture with coordinator";
+    }
+  } else if (checkCoordinator(req.user.email)) {
+    useType = "coordinator";
+  } else {
+    useType = "don't know";
   }
-  
+
   return useType;
-}
+};
 // login a user
 const getUserState = async (req, res) => {
-
   const useType = await funGetUserState(req);
   // console.log(useType);
   res.status(200).json({ type: useType });
@@ -214,7 +357,7 @@ const getExamReq = async (req, res) => {
       subject_name: subject_name,
     });
   });
-  console.log(newArr);
+  // console.log(newArr);
 
   res.status(200).json(newArr);
 };
@@ -229,15 +372,54 @@ const getSubjectDetails = async (req, res) => {
         ...subj,
         status: "not choose",
       };
-    }
-    );
-    
+    });
+
     res.status(200).json(newSubject);
   } else {
     res.status(200).json({ error: "You are not a student" });
   }
-    
-  
 };
 
-module.exports = { getUserState, getExamReq, getSubjectDetails };
+const getCourseReq = async (req, res) => {
+  // get list of subject_ID when subject[i].corrdinator_email === user.emil
+  const student_list = teacher.filter(
+    (teacher) => teacher.email === req.user.email
+  );
+
+  const result_list = results.filter(
+    (result) => result.e_num in student_list.student_e_num
+  );
+
+  // console.log(student_list[0]);
+
+  // get list of examReq when examReq.subject_ID === every subject_ID_list.subject_ID
+  // var examReq_list = examReq.filter((exam) =>
+  //   subject_ID_list.map((subj) => subj.subject_ID).includes(exam.subject_ID)
+  // );
+
+  // let newArr = [];
+
+  // examReq_list.forEach((exam) => {
+  //   const subject_name = subject.find(
+  //     (subj) => subj.subject_ID === exam.subject_ID
+  //   ).subject_name;
+
+  //   // add new data to json object
+  //   newArr.push({
+  //     _id: exam._id,
+  //     student_ID: exam.student_ID,
+  //     academic_year: exam.academic_year,
+  //     subject_ID: exam.subject_ID,
+  //     attempt: exam.attempt,
+  //     attendance: exam.attendance,
+  //     lab_attendance: exam.lab_attendance,
+  //     status: exam.status,
+  //     subject_name: subject_name,
+  //   });
+  // });
+  // console.log(newArr);
+
+  res.status(200).json(student_list);
+};
+
+module.exports = { getUserState, getExamReq, getSubjectDetails, getCourseReq };

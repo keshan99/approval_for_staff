@@ -1,9 +1,7 @@
 import classes from "../ExamReq/Table.module.css";
-// import TableRaw from "./TableRaw";
-// props.examReq
+import TableRaw from "./TableRaw";
 
 const Table = (props) => {
-  console.log(props.courseReq[0]);
   return (
     <div>
       <div className={classes.container}>
@@ -14,45 +12,34 @@ const Table = (props) => {
                 <thead className={classes.table__thead}>
                   <tr>
                     <th className={classes.table__th}>E number</th>
-                    <th className={classes.table__th}>Course ID</th>
+                    <th className={classes.table__th}>Subject ID</th>
                     <th className={classes.table__th}>Attempt</th>
-                    <th className={classes.table__th}>prerequests</th>
-                    <th className={classes.table__th}>prerequests results</th>
+                    <th className={classes.table__th}>Prerequisites</th>
+                    <th className={classes.table__th}>Prerequisites Status</th>
                     <th className={classes.table__th}>status</th>
                     <th className={classes.table__th}></th>
                   </tr>
                 </thead>
                 <tbody className={classes.table__tbody}>
                   {/* for loop for every examReq */}
+                  {props.courseReq.map((courseReq) => (
+                    <TableRaw user={props.user} courseReq={courseReq} />
+                  ))}
 
-                  {/* {props.examReq.map((examReq) => (
-                    <TableRaw key={examReq.E_num} examReq={examReq} />
-                  ))} */}
-
-                  {props.examReq.map((examReq) => {
-                    if (examReq.STATUS === "Pending") {
+                  {/* {props.courseReq.map((courseReq) => {
+                    if (courseReq.status === "Pending") {
                       return (
-                        <p>Hello</p>
-                        // <TableRaw
-                        //   key={examReq.E_num}
-                        //   examReq={examReq}
-                        //   user={props.user}
-                        // />
+                        <TableRaw courseReq={courseReq} user={props.user} />
                       );
                     }
                   })}
-                  {props.examReq.map((examReq) => {
-                    if (examReq.STATUS !== "Pending") {
+                  {props.courseReq.map((courseReq) => {
+                    if (courseReq.status !== "Pending") {
                       return (
-                        <p>Hello</p>
-                        // <TableRaw
-                        //   key={examReq.E_num}
-                        //   examReq={examReq}
-                        //   user={props.user}
-                        // />
+                        <TableRaw courseReq={courseReq} user={props.user} />
                       );
                     }
-                  })}
+                  })} */}
                 </tbody>
               </table>
             </div>

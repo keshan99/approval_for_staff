@@ -4,6 +4,7 @@ const express = require("express");
 const {
   getUserState,
   getExamReq,
+  getCourseReq,
   getSubjectDetails,
 } = require("../controllers/valController");
 const requireAuth = require("../middleware/requireAuth");
@@ -14,6 +15,7 @@ router.use(requireAuth);
 //router for getting user state and requireAuth is used to check if user is logged in
 router.get("/userState", getUserState);
 router.get("/getExamReq", getExamReq);
+router.get("/getCourseReq", getCourseReq);
 router.get("/getSubjectDetails", getSubjectDetails);
 
 module.exports = router;
