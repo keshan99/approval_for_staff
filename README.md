@@ -65,33 +65,33 @@ vii. Exam approval after
 
 i. Registration
 
-![Registration](screenshots/registration.jpg)
+![Registration](screenshots/Registration.jpg)
 
 - Registration validation
 
-![Registration_validation](screenshots/registration_validation.jpg)
+![Registration_validation](screenshots/Registration_validation.jpg)
 
 ii. Log in
 ![Log in](screenshots/Log_in.jpg)
 
 - Login validation
 
-![Login_validation](screenshots/login_validation.jpg)
+![Login_validation](screenshots/Login_validation.jpg)
 
 iii. Exam registration
-![Exam_registration](screenshots/exam_registration.jpg)
+![Exam_registration](screenshots/Exam_registration.jpg)
 
 iv. Exam registration add list
-![Exam_registration_add_list](screenshots/exam_registration_add_list.jpg)
+![Exam_registration_add_list](screenshots/Exam_registration_add_list.jpg)
 
 v. Exam registered
-![Exam_registered](screenshots/exam_registered.jpg)
+![Exam_registered](screenshots/Exam_registered.jpg)
 
 vi. Exam approval
-![Exam_approval](screenshots/exam_approval.jpg)
+![Exam_approval](screenshots/Exam_approval.jpg)
 
 vii. Exam approval after
-![Exam_approval_after](screenshots/exam_approval_after.jpg)
+![Exam_approval_after](screenshots/Exam_approval_after.jpg)
 
 
 
